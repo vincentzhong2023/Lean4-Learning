@@ -10,10 +10,17 @@ def Pointone: PersonIDS := {x := "Vincent", y := 2}
 #eval Pointone
 #check uncurry PersonIDS.mk
 -/
-def product := ("Vincent", 2)
-#check product
-structure PersonID where
-  x : String
-  y : Nat
-def Pointone: PersonID := {x := "Vincent", y := 2}
-#check Pointone
+inductive MyNat where
+  | zero : MyNat
+  | succ(n : MyNat) : MyNat
+open MyNat
+#check  MyNat.zero
+def add : MyNat → MyNat → MyNat
+  | zero, m => m
+  | succ n, m => succ (add n m)
+def one : MyNat := succ zero
+def two : MyNat := succ one
+def three : MyNat := succ two
+#eval add two three
+------------------------
+--1.5.1. Pattern Matching
