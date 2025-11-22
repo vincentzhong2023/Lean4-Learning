@@ -35,7 +35,7 @@ def area (s : Shape) : Float :=
 
 #eval area (circle 2)
 #eval area (rect 3 4)
---
+------------------------
 def isZero (n : Nat) : Bool :=
   match n with
   | Nat.zero => true
@@ -43,14 +43,14 @@ def isZero (n : Nat) : Bool :=
 #eval isZero Nat.zero
 #eval isZero 0
 #eval isZero 5
---
+------------------------
 def pred (n :Nat) : Nat :=
   match n with
   | Nat.zero => Nat.zero
   | Nat.succ k => k
 #eval pred 5
 #eval pred 0
---
+------------------------
 structure Point3D where
   x : Float
   y : Float
